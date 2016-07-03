@@ -1,0 +1,45 @@
+﻿<ion-modal-view>
+    <ion-header-bar>
+        <h1 class="title">TaskCreator</h1>
+        <div class="buttons">
+            <button class="button button-clear" ng-click="closeTask()">Close</button>
+        </div>
+    </ion-header-bar>
+    <ion-content>
+        <form ng-submit="doTask()">
+            <div class="list">
+                <label class="item item-input">
+                    <span class="input-label">Titre</span>
+                    <input type="text" ng-model="taskData.titre">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Description</span>
+                    <input type="text" ng-model="taskData.description">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Jour</span>
+                    <input type="text" ng-model="taskData.jour">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Mois</span>
+                    <input type="text" ng-model="taskData.mois">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Année</span>
+                    <input type="text" ng-model="taskData.annee">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Heure</span>
+                    <input type="text" ng-model="taskData.heure">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Minute</span>
+                    <input type="text" ng-model="taskData.minute">
+                </label>
+                <label class="item">
+                    <button class="button button-block button-positive" type="submit" ng-click="createTask(taskData.titre,taskData.description,taskData.jour,taskData.mois,taskData.annee,taskData.heure,taskData.minute)">Valider</button>
+                </label>
+            </div>
+        </form>
+    </ion-content>
+</ion-modal-view>

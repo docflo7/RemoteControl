@@ -1,0 +1,8 @@
+﻿Dans l'éditeur de la console
+Mettre le package sur la sentinelle ui
+Régler les paramètres :
+				<package name="MediaPlayer" autoStart="false">
+                <recoveryOptions restartAfterFailure="false"/>
+				</package>
+Pour empêcher que le package démarre tout seul et lance une fenêtre
+Et pour l'empêcher de se relancer quand on le ferme (fermer la fenêtre ui = fermeture brutale => redémarrage du package)

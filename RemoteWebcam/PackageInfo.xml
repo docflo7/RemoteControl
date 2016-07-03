@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Package xmlns="http://schemas.myconstellation.io/Constellation/1.8/PackageManifest"
+         Name="RemoteWebcam"
+         Version="2.1"
+         Author="RemoteControl Team"
+         Description="RemoteWebcam Copyright ©  2016"
+         EnableControlHub="false">
+  <Compatibility constellationVersion="1.8" dotNetTargetPlatform="net45" />
+  <Settings>
+    <!-- Add your package's settings here -->
+  </Settings>
+</Package>

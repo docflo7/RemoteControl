@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Package xmlns="http://schemas.myconstellation.io/Constellation/1.8/PackageManifest"
+         Name="MediaPlayer"
+         Version="2.3.3"
+         Author="RemoteControl Team"
+         Description="MediaPlayer Copyright ©  2016"
+         EnableControlHub="false">
+  <Compatibility constellationVersion="1.8" dotNetTargetPlatform="net45" />
+  <Settings>
+	<!-- My package settings --> 
+  </Settings>
+</Package>

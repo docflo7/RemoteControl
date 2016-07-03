@@ -1,0 +1,57 @@
+﻿<ion-view view-title="login" ng-controller="login">
+    <ion-content>
+        <div ng-if="!loggedIn">
+            <div class="list list-inset">
+                
+                <label class="item item-input">
+                    <input type="text" placeholder="Username" ng-model="username">
+                </label>
+                <label class="item item-input">
+                    <input type="password" placeholder="Password" ng-model="password">
+                </label>
+                <label class="item item-input">
+                    <input type="text" placeholder="Server IP address (default = localhost)" ng-model="address">
+                </label>
+                <label class="item item-input">
+                    <input type="text" placeholder="Output port (default = 8088)" ng-model="port">
+                </label>
+                <label class="item item-input">
+                    <input type="text" placeholder="Sentinel name" ng-model="sentinel">
+                </label>
+                <br />
+                <div class="row">
+                    <div class="col">
+                        <button class="button button-positive" style="width:inherit" ng-click="logIn(username, password, address, port, sentinel)">
+                            Log In !
+                        </button>
+                    </div>
+                    <div class="col">
+                        <button class="button button-positive" style="width:inherit" ng-click="clear()">
+                            Clear storage
+                        </button>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+        <div ng-if="loggedIn">
+            <div class="list list-inset">
+                <label class="item item-input">
+                    Username : {{username}}
+                </label>
+                <label class="item item-input">
+                    Password length : {{password.length}}
+                </label>
+                <label class="item item-input">
+                    Constellation address : http://{{address}}:{{port}}
+                </label>
+                <label class="item item-input">
+                    Controlling sentinel : {{sentinel}}
+                </label>
+                <br />
+                <button class="button button-positive" style="width:50%" ng-click="logOut()">
+                    Log Out !
+                </button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Package xmlns="http://schemas.myconstellation.io/Constellation/1.8/PackageManifest"
+         Name="RemoteControl"
+         Version="2.6.4"
+         Author="RemoteControl Team"
+         Description="RemoteControl Copyright ©  2016"
+         EnableControlHub="true">
+  <Compatibility constellationVersion="1.8" dotNetTargetPlatform="net45" />
+  <Settings>
+    <!-- Add your package's settings here -->
+  </Settings>
+</Package>

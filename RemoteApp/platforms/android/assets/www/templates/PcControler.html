@@ -1,0 +1,91 @@
+﻿<ion-view view-title="PcControler" ng-controller="MyController">
+    <link rel="stylesheet" type="text/css" href="../css/ionicons.css">
+    <ion-content>
+        <div class="list">
+            <div class="item item-divider item-dark">
+                Volume Control
+            </div>
+            <div class="item range range-calm">
+                <i class="icon ion-volume-low"></i>
+                <input type="range" class="item-calm" name="volume" min="0" max="100" step="1" ng-model="volume.value" ng-change="SetVolume(volume)">
+                <i class="icon ion-volume-high"></i>
+            </div>
+
+            <div class="item item-toggle">
+                Mute
+                <label class="toggle toggle-calm">
+                    <input type="checkbox" name="mute" ng-model="consumer.RemoteControl.VolumeLevel.Value.muteState" ng-change="mute()">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </div>
+
+
+
+
+            <div class="item item-divider item-dark">
+                Brightness Control
+            </div>
+            <div class="item range range-positive range-energized">
+                <i class="icon ion-ios-sunny-outline"></i>
+                <input type="range" class="item-energized" name="brightness" min="0" max="100" step="10" ng-model="brightness.value" ng-change="SetBrightness(brightness)">
+                <i class="icon ion-ios-sunny"></i>
+
+
+
+            </div>
+
+            <div class="item item-divider item-dark">
+                Hardware Control
+            </div>
+
+            <button class="button icon-right ion-camera button-bar button-outline button-royal" style="margin:2%;width:96%" ; ng-click="snapshot()">
+                &nbsp; Take a Webcam Snapshot
+            </button>
+            <button class="button icon-right ion-android-hand button-bar button-outline button-positive" style="margin:2%;width:96%" ; ng-click="monitoroff()">
+                &nbsp; Turn off monitor
+            </button>
+            <button class="button icon-right ion-alert-circled button-bar button-outline button-calm" style="margin:2%;width:96%" ; ng-click="panicMode()">
+                &nbsp; Panic Mode
+            </button>
+            <button class="button icon-right ion-power button-bar button-outline button-balanced" style="margin:2%;width:96%" ; ng-click="shutdown()">
+                &nbsp; Shutdown
+            </button>
+            <button class="button icon-right ion-refresh button-bar button-outline button-energized" style="margin:2%;width:96%" ; ng-click="reboot()">
+                &nbsp; Reboot
+            </button>
+            <button class="button icon-right ion-ios-moon button-bar button-outline button-assertive" style="margin:2%;width:96%" ; ng-click="sleep()">
+                &nbsp; &nbsp;  Sleep
+            </button>
+
+            <div class="button-bar" style="width:96%;margin-left:2%;margin-bottom:2%">
+                <div class="button button-outline button-dark" ; ng-click="save()">
+                    <i class="ion-leaf" style="text-align:center"></i>
+                    Saver power
+                </div>
+
+                <div class="button button-outline button-dark" ; ng-click="balance()">
+                    <i class="ion-home"></i>
+                    Balanced power
+                </div>
+
+                <div class="button button-outline button-dark" ; ng-click="high()">
+                    <i class="ion-speedometer"></i>
+                    Performance power
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+    </ion-content>
+</ion-view>

@@ -1,0 +1,130 @@
+<ion-view view-title="Media" ng-controller="MyController">
+    <link rel="stylesheet" type="text/css" href="../css/ionicons.css">
+    <style>
+        .nowPlaying {
+            color: blue;
+        }
+    </style>
+    <ion-content>
+        <p1>
+
+            <ul class="list">
+
+                <li class="item item-toggle">
+                    Media Player
+                    <label class="toggle toggle-assertive">
+                        <input type="checkbox" ng-model="consumer.RemoteControl.MediaPlayerState.Value" ng-click="run()">
+                        <div class="track">
+                            <div class="handle"></div>
+                        </div>
+                    </label>
+                </li>
+
+            </ul>
+            <p>
+                <div class="button-bar" style="width:96%;margin-left:2%">
+                    <div class="button button-calm" id="Play" ; ng-click="play()">
+                        <i class="ion-play" style="text-align:center"></i>
+                    </div>
+
+                    <div class="button button-energized" id="Pause" ; ng-click="pause()">
+                        <i class="ion-pause"></i>
+                    </div>
+
+                    <div class="button button-assertive" id="Stop" ; ng-click="stop()">
+                        <i class="ion-stop"></i>
+                    </div>
+                </div>
+            </p>
+            <p>
+                <div class="button-bar" style="width:96%;margin-left:2%">
+                    <div class="button button-balanced" id="Previous" ; ng-click="previous()">
+                        <i class="ion-ios-skipbackward" style="text-align:center"></i>
+                    </div>
+
+                    <div class="button button-balanced" id="Shuffle" ; ng-click="shuffle()">
+                        <i class="ion-shuffle"></i>
+                        {{shuffleState}}
+                    </div>
+
+                    <div class="button button-balanced" id="Next" ; ng-click="next()">
+                        <i class="ion-ios-skipforward"></i>
+                    </div>
+                </div>
+
+
+            </p>
+
+        </p1><br />
+
+        <div style="margin-left:1%">
+            <div class="item item-toggle item-borderless" style="float:right" >
+                <div style="float:right">Fullscreen</div>
+                <label class="toggle toggle-assertive">
+                    <input type="checkbox" ng-model="fullScreenState" ng-click="fullscreen()">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </div>
+        <br/>
+            <input id="search"  type="search" placeholder="Research Art. or Alb." name="search" ng-model="search">
+            <button id="SearchArtist" class="button icon-left ion-search" ng-click="searchArtist(search)">Artist</button>
+            <button id="SearchAlbum" class="button icon-left ion-search" ng-click="searchAlbum(search)">Album</button>
+            <button id="videos" class="button icon-left ion-ios-videocam" style="float:right;margin-right:1%" ng-click="getVideos(search)">Load video list</button>
+        </div><br /><br />
+
+        <div style="font-size:20px">
+            Currently playing :
+        </div>
+        <br />
+        <ul style="text-align:center" class="list">
+            <li class="item item-borderless">
+                <div>{{consumer.MediaPlayer.CurrentSong.Value[0].Item1}}</div>
+                <div>{{consumer.MediaPlayer.CurrentSong.Value[0].Item2}}</div>
+                <div>{{consumer.MediaPlayer.CurrentSong.Value[0].Item3}}</div>
+                <div></div>
+            </li>
+            <li class="item range item-borderless range-light">
+                {{consumer.MediaPlayer.TimeData.Value.current}}
+                <input type="range" name="position" min="0" max="{{consumer.MediaPlayer.TimeData.Value.duration}}" ng-model="position.value" ng-change="SetPosition(position)">
+                {{consumer.MediaPlayer.TimeData.Value.total}}
+            </li>
+        </ul>
+        <div style="font-size:20px">
+            Current playlist :
+        </div>
+        <br />
+        <ul style="text-align:center" class="list">
+            <li class="item"
+                ng-repeat="song in consumer.MediaPlayer.CurrentPlaylist.Value"
+                ng-if="song.Item1 != 'Artist'"
+                ng-class="{'nowPlaying':song.Item1 == consumer.MediaPlayer.CurrentSong.Value[0].Item1
+                                        && song.Item2 == consumer.MediaPlayer.CurrentSong.Value[0].Item2
+                                        && song.Item3 == consumer.MediaPlayer.CurrentSong.Value[0].Item3}">
+                <div >{{song.Item1}}</div>
+                <div ng-click="titleOnAlbumClick(song)">{{song.Item2}}</div>
+                <div class="row">
+                    <div class="col " ng-click="titleOnTitleClick(song)">
+                        <i ng-if="song.Item1 == consumer.MediaPlayer.CurrentSong.Value[0].Item1
+                                && song.Item2 == consumer.MediaPlayer.CurrentSong.Value[0].Item2
+                                && song.Item3 == consumer.MediaPlayer.CurrentSong.Value[0].Item3"
+                           class="ion-music-note"></i>
+                        &nbsp
+                        {{song.Item3}}
+                        &nbsp
+                        <i ng-if="song.Item1 == consumer.MediaPlayer.CurrentSong.Value[0].Item1
+                                && song.Item2 == consumer.MediaPlayer.CurrentSong.Value[0].Item2
+                                && song.Item3 == consumer.MediaPlayer.CurrentSong.Value[0].Item3"
+                           class="ion-music-note"></i>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <button id="BackArtist" class="button icon-left ion-ios-arrow-back" ng-click="searchArtist(consumer.MediaPlayer.CurrentSong.Value[0].Item1)">
+            Back to Artist
+        </button>
+
+
+    </ion-content>
+</ion-view>
